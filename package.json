@@ -21,5 +21,8 @@
   "homepage": "https://github.com/ChrisLee0211/myBlog#readme",
   "devDependencies": {
     "vitepress": "^0.22.4"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.0.24"
   }
 }
