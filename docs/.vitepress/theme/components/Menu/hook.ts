@@ -1,6 +1,5 @@
-import { computed, ComputedRef, watch } from 'vue';
-import {useRouter} from 'vue-router';
-import {routes} from '../../router/index'
+import { computed, ComputedRef } from 'vue';
+import  {useRouter, useData } from 'vitepress';
 
 interface MenuItem {
     text:string,
@@ -8,25 +7,34 @@ interface MenuItem {
     pathName:string,
 }
 
+interface Routes {
+    name:string;
+    path:string;
+    meta:{
+        [key:string]:any
+    }
+}
+
 export const useMenu = () => {
     const router = useRouter();
+    const currentRouter = router.route.path;
+    const siteData = useData();
+    const routerList = computed(() => {
+        return siteData.site.value.themeConfig.nav as Array<Routes>
+    })
     const menuList: ComputedRef<MenuItem[]>= computed(() => {
-        const entryRoute = routes.find(item => item.name === '');
-        if(entryRoute && entryRoute.children) {
-            return entryRoute?.children.map((routeConfig) => {
-                return {
-                    text:routeConfig.meta?.title as string??'',
-                    pathName:routeConfig.name as string,
-                    active:routeConfig.name === router.currentRoute.value.name
-                }
-            })
-        }
-        return []
+       return (routerList.value??[]).map((routeItem) => {
+           return {
+            text:routeItem.meta?.title??'',
+            pathName: routeItem.name,
+            active: currentRouter === routeItem.name
+           }
+       })
     });
 
     const handleClick = (routeName:string) => {
-        if (routeName === router.currentRoute.value.name) return
-        router.push({ name: routeName })
+        if (routeName === currentRouter) return
+        router.go(routeName)
     };
     return {
         list:menuList,
