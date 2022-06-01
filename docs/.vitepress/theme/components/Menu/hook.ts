@@ -26,8 +26,8 @@ export const useMenu = () => {
        return (routerList.value??[]).map((routeItem) => {
            return {
             text:routeItem.meta?.title??'',
-            pathName: routeItem.name,
-            active: currentRouter === routeItem.name
+            pathName: routeItem.path,
+            active: currentRouter === routeItem.path
            }
        })
     });

@@ -11,10 +11,10 @@ module.exports = {
     },
     themeConfig: {
         nav: [
-            { path: '/home', name: 'home', meta: { title: '首页' } },
+            { path: '/', name: 'home', meta: { title: '首页' } },
             { path: '/gallery', name: 'gallery', meta: { title: '画廊' } },
             { path: '/blog', name: 'blog', meta: { title: 'lee`s blog' } },
-            { path: '/utils', name: 'utils', meta: { title: '工具' } },
+            { path: '/note', name: 'note', meta: { title: '笔记' } },
         ]
     }
 }

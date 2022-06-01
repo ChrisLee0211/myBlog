@@ -4,11 +4,11 @@ export const useScrollTop = (target?:Ref<HTMLElement>) => {
     const eventTarget = target?.value || window
     const scrollTop = ref(0);
     const scrollListener = (e:Event) => {
+        let scrollTopVal = (e.target as Document).documentElement.scrollTop
         if (target) {
-            scrollTop.value = (e.target as HTMLElement).scrollTop;
-        }else {
-            scrollTop.value = (e.target as Document).documentElement.scrollTop;
-        }
+            scrollTopVal = (e.target as HTMLElement).scrollTop;
+        };
+        scrollTop.value = scrollTopVal;
     }
     onMounted(() => {
         try{
@@ -24,6 +24,8 @@ export const useScrollTop = (target?:Ref<HTMLElement>) => {
             console.error(e)
         }
     })
+
+
 
     return scrollTop
 }

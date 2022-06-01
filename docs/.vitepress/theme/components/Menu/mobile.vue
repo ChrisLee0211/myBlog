@@ -13,38 +13,12 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref, Ref } from 'vue'
+import { useMenu } from './hook';
 
-interface MenuItem {
-    text:string,
-    active:boolean,
-    pathName:string,
-}
 
 export default defineComponent({
     setup() {
-        console.log('menu')
-        const list:Ref<MenuItem[]> = ref([
-            {
-                text:'首页',
-                pathName:'Home',
-                active:true
-            },
-            {
-                text:'我的画廊',
-                pathName:'Gallery',
-                active:false
-            },
-            {
-                text:'Lee`s Blog',
-                pathName:'Blog',
-                active:false
-            },
-            {
-                text:'工具',
-                pathName:'Util',
-                active:false
-            },
-        ])
+        const { list, clickMenu } = useMenu();
         const activeClass = `bg-white text-black shadow-2xl`
         const normalClass = `text-base text-white`    
         return {
