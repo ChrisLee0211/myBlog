@@ -3,6 +3,7 @@
 module.exports = {
     title: 'Hello VuePress',
     description: 'Just playing around',
+    head: [['script', { src:'//at.alicdn.com/t/font_1915064_sl7g7e9vxz.js'}]],
     postcss: {
         plugins: [
             require('tailwindcss')('./tailwind.config.js'),
