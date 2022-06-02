@@ -1,4 +1,4 @@
-import {ref, watch, Ref} from 'vue';
+import {ref, watch, Ref, onMounted, onUnmounted, computed} from 'vue';
 import {useDebounceValue} from './useDebounceValue';
 
 /**
@@ -8,21 +8,25 @@ import {useDebounceValue} from './useDebounceValue';
  * @Time 2021/03/26
  */
 export const useDeviceWatcher = ():Ref<'pc'|'mobile'> => {
-    let deviceWidth = useDebounceValue(document.body.offsetWidth,200);
-    const deviceType = ref<'pc'|'mobile'>(deviceWidth.value>=756?'pc':'mobile');
+    const deviceWidth = useDebounceValue(756,200);
+
+    const deviceType = computed(() => {
+      if(deviceWidth.value>=756){
+        return 'pc'
+      }else{
+        return 'mobile'
+      }
+    })
     const resizeHandler = (e:Event) => {
       deviceWidth.value = (e.currentTarget as Window).innerWidth
     }
-    window.addEventListener("resize",resizeHandler);
-    watch(deviceWidth,()=>{
-      if(deviceWidth.value>=756){
-        deviceType.value = 'pc'
-      }else{
-        deviceType.value = 'mobile'
-      }
-      return ()=>{
-        window.removeEventListener("resize",resizeHandler)
-      }
-    },)
+    onMounted(() => {
+      deviceWidth.value = document.body.offsetWidth;
+      window.addEventListener("resize",resizeHandler);
+    });
+    onUnmounted(() => {
+      window.removeEventListener("resize",resizeHandler);
+    })
+
     return deviceType
 }
