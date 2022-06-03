@@ -10,7 +10,7 @@ module.exports = {
             require('autoprefixer')
         ]
     },
-    base:'/myBlog',
+    base:'/myBlog/',
     themeConfig: {
         nav: [
             { path: '/', name: 'home', meta: { title: '首页' } },
