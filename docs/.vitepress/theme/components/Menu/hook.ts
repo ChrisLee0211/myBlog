@@ -17,8 +17,10 @@ interface Routes {
 
 export const useMenu = () => {
     const router = useRouter();
-    const currentRouter = router.route.path;
     const siteData = useData();
+    const currentRouter = computed(() => {
+       return siteData.frontmatter.value?.route
+    })
     const routerList = computed(() => {
         return siteData.site.value.themeConfig.nav as Array<Routes>
     })
@@ -27,14 +29,14 @@ export const useMenu = () => {
            return {
             text:routeItem.meta?.title??'',
             pathName: routeItem.path,
-            active: currentRouter === routeItem.path
+            active: currentRouter.value === routeItem.path
            }
        })
     });
 
-    const handleClick = (routeName:string) => {
-        if (routeName === currentRouter) return
-        router.go(routeName)
+    const handleClick = (path:string) => {
+        if (path === currentRouter.value) return
+        router.go(path)
     };
     return {
         list:menuList,

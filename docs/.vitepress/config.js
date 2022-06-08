@@ -14,9 +14,9 @@ module.exports = {
     themeConfig: {
         nav: [
             { path: '/', name: 'home', meta: { title: '首页' } },
-            { path: '/gallery', name: 'gallery', meta: { title: '画廊' } },
-            { path: '/blog', name: 'blog', meta: { title: 'lee`s blog' } },
-            { path: '/note', name: 'note', meta: { title: '笔记' } },
+            { path: '/myBlog/gallery', name: 'gallery', meta: { title: '画廊' } },
+            { path: '/myBlog/blog', name: 'blog', meta: { title: 'lee`s blog' } },
+            { path: '/myBlog/note', name: 'note', meta: { title: '笔记' } },
         ]
     }
 }
