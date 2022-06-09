@@ -13,7 +13,7 @@
     "
     :style="`transform:translateY(${topOffset}px)`"
   >
-    <ul :class="`font-mono list-none flex w-7/12 h-full`">
+    <ul :class="`font-mono list-none flex justify-center items-center w-7/12 h-full`">
       <li
         v-for="item in list"
         :key="item.text"
