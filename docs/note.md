@@ -5,8 +5,9 @@ description: 个人笔记
 route: /myBlog/note
 ---
 
-# 个人常用代码块
-```
+
+
+``` json
 "build a FC": {
 		"prefix": "react-fc",
 		"body": [
