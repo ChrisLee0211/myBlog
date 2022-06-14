@@ -17,3 +17,21 @@ export default defineComponent({
   setup() {},
 });
 </script>
+<style>
+div[class*=language-] {
+    line-height: 1.4;
+    padding: 1.25rem 1.5rem;
+    margin: 0.85rem 0;
+    background-color: #282c34;
+    border-radius: 6px;
+    overflow: auto;
+}
+pre[class*=language-] {
+  line-height: 1.4;
+    padding: 1.25rem 1.5rem;
+    margin: 0.85rem 0;
+    background-color: #282c34;
+    border-radius: 6px;
+    overflow: auto;
+}
+</style>
