@@ -1,11 +1,17 @@
 <template>
-  <Menu />
-    <ContentHoc>
-      <Content /><!-- make sure to include markdown outlet -->
-    </ContentHoc>
+<DefaultTheme >
+  <template #navbar>
+    <Menu />
+    1111
+  </template>
+      <ContentHoc>
+        <Content /><!-- make sure to include markdown outlet -->
+      </ContentHoc>
+</DefaultTheme>
 </template>
 <script>
 import { defineComponent } from "vue";
+import DefaultTheme from 'vitepress/theme'
 import Menu from "../components/Menu/index.vue";
 import ContentHoc from "../components/ContentHoc/index.vue";
 
@@ -13,6 +19,7 @@ export default defineComponent({
   components: {
     Menu,
     ContentHoc,
+    DefaultTheme: DefaultTheme.Layout
   },
   setup() {},
 });
