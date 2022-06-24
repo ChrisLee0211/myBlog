@@ -6,17 +6,17 @@ export const navList = () => [
       },
     {
         text: '画廊',
-        activeMatch: '/gallery/',
+        activeMatch: '^/gallery/',
         link: '/gallery/'
       },
     {
         text: 'lee`s blog',
-        activeMatch: '/blog/',
+        activeMatch: '^/blog/',
         link: '/blog/'
       },
     {
         text: '笔记',
-        activeMatch: '/note/',
+        activeMatch: '^/note/',
         link: '/note/'
       },
 ]
