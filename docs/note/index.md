@@ -2,8 +2,7 @@
 lang: zh-CN
 title: 笔记
 description: 个人笔记
-route: /myBlog/note
-fullScreen: false
+route: /note/
 ---
 
 # 常用代码片段
