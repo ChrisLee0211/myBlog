@@ -1,11 +1,16 @@
 <template>
-    <HomeBackground />
-    <HomeContent />
+<div class="bg-wrapper">
+        <div
+            class="bg-wrapper-item"
+            v-for="(item , idx) in artListRenderConfig"
+            :key="idx"
+            :style="item.style"
+        ></div>
+    </div>
+    
 </template>
 <script lang="ts">
 import { defineComponent, ref, computed, onMounted } from 'vue';
-import HomeBackground from '../HomeBackground/index.vue';
-import HomeContent from '../HomeContent/index.vue';
 
 const artEleList = [
             {
@@ -55,11 +60,7 @@ const artEleList = [
 
 
 export default defineComponent({
-    name: 'Home',
-    components: {
-        HomeBackground,
-        HomeContent
-    },
+    name: 'HomeBackground',
     setup() {
         const artList = ref(artEleList);
         const artListRenderConfig = computed(() => {
@@ -107,11 +108,5 @@ export default defineComponent({
         width: 100%;
         .bg-size
     }
-}
-.test {
-     position: relative;
-    height: 3000px;
-    background: #18252c;
-    z-index: 98
 }
 </style>
