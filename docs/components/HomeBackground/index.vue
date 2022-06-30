@@ -91,7 +91,7 @@ export default defineComponent({
     },
 })
 </script>
-<style lang="less" scoped>
+<style lang="less">
 .bg-size {
     height: 750px;
 }

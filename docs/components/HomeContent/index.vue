@@ -1,5 +1,5 @@
 <template>
-  <div class="content">content</div>
+  <div class="home-body">content</div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -12,7 +12,10 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
-.content {
-    background: var(--vt-c-bg);
+.home-body {
+    position: relative;
+    height: 3000px;
+    background: var(--vt-c-bg, #18252c);
+    z-index: 19;
 }
 </style>
