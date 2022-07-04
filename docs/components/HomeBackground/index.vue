@@ -1,8 +1,8 @@
 <template>
 <div class="bg-wrapper">
         <div
-            class="bg-wrapper-item"
             v-for="(item , idx) in artListRenderConfig"
+            :class="`bg-wrapper-item bg_img_${idx+1}`"
             :key="idx"
             :style="item.style"
         ></div>
@@ -14,43 +14,36 @@ import { defineComponent, ref, computed, onMounted } from 'vue';
 
 const artEleList = [
             {
-                bgSrc:`../../assets/home_bg_1.png`,
                 scrollSpeed:20,
                 yOffset:0,
                 yPosition:-50,
             },
             {
-                bgSrc:`../../assets/home_bg_2.png`,
                 scrollSpeed:30,
                 yOffset:0,
                 yPosition:-150,
             },
             {
-                bgSrc:`../../assets/home_bg_3.png`,
                 scrollSpeed:40,
                 yOffset:0,
                 yPosition:-200,
             },
             {
-                bgSrc:`../../assets/home_bg_4.png`,
                 scrollSpeed:45,
                 yOffset:0,
                 yPosition:-100,
             },
             {
-                bgSrc:`../../assets/home_bg_5.png`,
                 scrollSpeed:60,
                 yOffset:0,
                 yPosition:200,
             },
             {
-                bgSrc:`../../assets/home_bg_6.png`,
                 scrollSpeed:70,
                 yOffset:0,
                 yPosition:50,
             },
             {
-                bgSrc:`../../assets/home_bg_7.png`,
                 scrollSpeed:80,
                 yOffset:0,
                 yPosition:0,
@@ -67,7 +60,7 @@ export default defineComponent({
             return artList.value.map((item, idx) => {
                 const transformStyle = `transform: translate3d(0px, ${item.yOffset}px, 0px)`;
                 return {
-                    style: `background-image:url(${item.bgSrc});
+                    style: `
                     ${transformStyle};${item.yPosition? 
                     `background-position-y:${item.yPosition}px`: ''}
                     `
@@ -108,5 +101,27 @@ export default defineComponent({
         width: 100%;
         .bg-size
     }
+}
+
+.bg_img_1 {
+    background-image: url(../../assets/home_bg_1.png);
+}
+.bg_img_2 {
+    background-image: url(../../assets/home_bg_2.png);
+}
+.bg_img_3 {
+    background-image: url(../../assets/home_bg_3.png);
+}
+.bg_img_4 {
+    background-image: url(../../assets/home_bg_4.png);
+}
+.bg_img_5 {
+    background-image: url(../../assets/home_bg_5.png);
+}
+.bg_img_6 {
+    background-image: url(../../assets/home_bg_6.png);
+}
+.bg_img_7 {
+    background-image: url(../../assets/home_bg_7.png);
 }
 </style>
