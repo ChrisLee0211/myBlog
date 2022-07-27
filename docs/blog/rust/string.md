@@ -97,4 +97,4 @@ error[E0277]: the type `String` cannot be indexed by `{integer}`
 let s1 = String::from("中国人");
 // 依然是按字节长度来取，中字占3个字节，那就是索引0-2
 let h = &s1[..3];
-```
+``` 
