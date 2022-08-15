@@ -49,3 +49,20 @@ enum Message {
 }
 ```
 ## 枚举值
+> 比ts麻烦的是，rust的枚举值需要显式地创建使用，通过 `::` 操作符来访问枚举类型的某个成员，再加 `()` 传入初始值进行实例化具体的值
+```rust
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+fn main() {
+    let m1 = Message::Quit;
+    let m2 = Message::Move{x:1,y:1};
+    let m3 = Message::ChangeColor(255,255,0);
+}
+```
+
+## null的替代品——Option枚举类型
