@@ -120,3 +120,38 @@ for item in collection {
 同样地，rust也和js一样可以使用`continue`和`break`关键字跳出循环.
 
 ## 循环--while
+while的语法和用法大致和js一样，但是和for循环相比唯一的缺点是很可能在while循环里我们依赖某个自增索引来访问元素时，会产生和for循环用索引访问元素一样的性能损耗。因此while循环更适合用于具体条件为启动入口的循环逻辑：
+```rust
+fn main() {
+    let mut n = 0;
+
+    while n <= 5  {
+        println!("{}!", n);
+
+        n = n + 1;
+    }
+
+    println!("我出来了！");
+}
+```
+
+## 循环--loop
+`loop`循环几乎可以实现所有for和while的循环逻辑，可以简单地理解为它是一个相当于`while true {}`的循环。由于loop是没有条件可言的，因此它需要搭配`break`关键字来退出循环：
+```rust
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {}", result);
+}
+```
+这里有几点值得注意：
+- `break` 可以单独使用，也可以带一个返回值，有些类似 `return`
+- `loop` 是一个表达式，因此可以返回一个值
